@@ -1,16 +1,22 @@
-import React from 'react'
-import styles from './App.module.css'
-import logo from './logo.svg'
+import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import ErrorBoundary from './components/error-boundary.component'
+import NotFound from './components/not-found.component'
+import Home from './pages/Home'
 
 const App: React.FC = () => {
   return (
     <div className="bg-gray-200 p-10 min-h-full">
-      <div className={styles.body}>
-        <img className="h-16 w-16 mx-auto" src={logo} alt="React" />
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="loading" />}>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   )
 }
