@@ -3,3 +3,32 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('../assets/fonts/CourierPrime-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: 'Courier Prime';
+    src: url('../assets/fonts/CourierPrime-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: 'Alfa Slab One';
+    src: url('../assets/fonts/AlfaSlabOne-Regular.ttf') format('truetype');
+  }
+
+  body {
+    font-family: 'Courier Prime';
+  }
+
+  button {
+    font-family: 'Alfa Slab One';
+  }
+}

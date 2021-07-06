@@ -15,21 +15,23 @@ class ErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error }
+  static getDerivedStateFromError(_: Error): State {
+    return { hasError: true }
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     log.warn(error, errorInfo.componentStack)
   }
 
-  render() {
+  render(): ReactNode {
     const { hasError } = this.state
     const { children } = this.props
     return hasError ? (
-      <div>
-        <div />
-        <h2>It seems like the page didn&apos;t load properly. Please refresh the page</h2>
+      <div className="h-screen w-full flex flex-col justify-center items-center">
+        <div className="inline-block w-40 h-40 bg-cover bg-center bg-error-image" />
+        <h2 className="text-center">
+          It seems like the page didn&apos;t load properly. Please refresh the page
+        </h2>
       </div>
     ) : (
       children

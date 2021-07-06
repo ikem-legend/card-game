@@ -6,7 +6,7 @@ import Home from './pages/Home'
 
 const App: React.FC = () => {
   return (
-    <div className="bg-gray-200 p-10 min-h-full">
+    <div className="h-screen w-full min-h-full bg-gray-200">
       <ErrorBoundary>
         <Suspense fallback={<div className="loading" />}>
           <Router>
