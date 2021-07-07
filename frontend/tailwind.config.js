@@ -10,6 +10,7 @@ module.exports = {
     backgroundColor: (theme) => ({
       ...theme('colors'),
       'deep-green': '#0A863E',
+      'medium-yellow': '#EFCE4B',
     }),
     backgroundImage: (theme) => ({
       'error-image': "url('https://i.imgur.com/yW2W9SC.png')",
@@ -17,6 +18,10 @@ module.exports = {
     borderColor: (theme) => ({
       ...theme('colors'),
       'light-yellow': '#FFF48C',
+    }),
+    textColor: (theme) => ({
+      ...theme('colors'),
+      'medium-yellow': '#EFCE4B',
     }),
   },
   variants: {
