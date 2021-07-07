@@ -23,7 +23,6 @@ const initialState = {
   cardDeck: { ...FullCardDeck },
   selectedCards: [],
 }
-// const [count, setCount] = useState(0)
 
 const cardReducer = (state: CardStateData, action: ActionType) => {
   // Account for ensuring 5 cards are picked per deal
@@ -68,7 +67,6 @@ const useCardState = (): CardReducerData => {
         dispatch({ type: 'PICK_CARDS' })
       }
     }
-    // setCount(cnt => cnt + 1)
   }
 
   const resetCardDeck = (): void => {
@@ -79,9 +77,7 @@ const useCardState = (): CardReducerData => {
 
   useEffect(() => {
     if (cardDeckState.selectedCards.length === 52) {
-      const lastCardsArr = cardDeckState.selectedCards
-        .slice(cardDeckState.selectedCards.length - 2)
-        .map((card) => card.number)
+      const lastCardsArr = cardDeckState.selectedCards.slice(50).map((card) => card.number)
       if (lastCardsArr.indexOf('A') !== -1) {
         setWinStatus(true)
       }
