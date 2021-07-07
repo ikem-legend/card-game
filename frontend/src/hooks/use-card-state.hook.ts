@@ -25,36 +25,37 @@ const initialState = {
 }
 // const [count, setCount] = useState(0)
 
-const useCardState = (): CardReducerData => {
-  const cardReducer = (state: CardStateData, action: ActionType) => {
-    // Account for ensuring 5 cards are picked per deal
-    // and remainder picked when less than 5
-    const cardIndex = Math.floor(Math.random() * 52)
-    const updatedState = { ...state } // Do a deep copy as child object is mutated
-    // const resetState = { ...state }
-    switch (action.type) {
-      case 'PICK_CARDS':
-        // Since the previously selected object keys are deleted,
-        // then new items can only be selected only when the randomly generated
-        // index exists as a key in the cardDeck
-        if (state.cardDeck[cardIndex]) {
-          updatedState.selectedCards.push(updatedState.cardDeck[cardIndex])
-          delete updatedState.cardDeck[cardIndex]
-        } else {
-          cardReducer(state, action)
-        }
-        return updatedState
+const cardReducer = (state: CardStateData, action: ActionType) => {
+  // Account for ensuring 5 cards are picked per deal
+  // and remainder picked when less than 5
+  const cardIndex = Math.floor(Math.random() * 52)
+  const updatedState = { ...state } // Do a deep copy as child object is mutated
+  // const resetState = { ...state }
+  switch (action.type) {
+    case 'PICK_CARDS':
+      // Since the previously selected object keys are deleted,
+      // then new items can only be selected only when the randomly generated
+      // index exists as a key in the cardDeck
+      if (state.cardDeck[cardIndex]) {
+        updatedState.selectedCards.push(updatedState.cardDeck[cardIndex])
+        delete updatedState.cardDeck[cardIndex]
+      } else {
+        cardReducer(state, action)
+      }
+      return updatedState
 
-      case 'RESET_CARD_DECK':
-        return {
-          cardDeck: { ...FullCardDeck },
-          selectedCards: [],
-        }
+    case 'RESET_CARD_DECK':
+      return {
+        cardDeck: { ...FullCardDeck },
+        selectedCards: [],
+      }
 
-      default:
-        return state
-    }
+    default:
+      return state
   }
+}
+
+const useCardState = (): CardReducerData => {
   const [cardDeckState, dispatch] = useReducer(cardReducer, initialState)
 
   const dealCards = (): void => {

@@ -8,7 +8,11 @@ type CardDisplayProps = {
 
 const CardDisplay: FC<CardDisplayProps> = ({ cards }) => {
   return (
-    <div className="flex justify-between my-28 mx-auto w-3/5">
+    <div
+      className={`flex ${
+        cards.length > 2 ? 'justify-between' : 'justify-center space-x-6'
+      } my-28 mx-auto w-3/5`}
+    >
       {cards.map((cardData, idx) => (
         <SingleCard key={idx} cardDetails={cardData} />
       ))}
