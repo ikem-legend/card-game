@@ -25,6 +25,7 @@
   }
 
   body {
+    @apply max-w-full;
     font-family: 'Courier Prime';
   }
 

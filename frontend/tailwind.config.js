@@ -14,6 +14,10 @@ module.exports = {
     backgroundImage: (theme) => ({
       'error-image': "url('https://i.imgur.com/yW2W9SC.png')",
     }),
+    borderColor: (theme) => ({
+      ...theme('colors'),
+      'light-yellow': '#FFF48C',
+    }),
   },
   variants: {
     extend: {},
