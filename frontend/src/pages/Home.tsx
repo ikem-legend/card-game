@@ -6,10 +6,16 @@ import useCardState from '../hooks/use-card-state.hook'
 const Home: FC = () => {
   const [cardDeckState, { dealCards, resetCardDeck }] = useCardState()
   // Cards displayed will be last 5 of selected cards or last 2 when necessary
+  // Since the selected cards array will have a maximum length of 52, then we can
+  // ensure only 2 cards are served when it has a length of 50
+  const cardsForDisplay =
+    cardDeckState.selectedCards.length <= 50
+      ? cardDeckState.selectedCards.slice(cardDeckState.selectedCards.length - 5)
+      : cardDeckState.selectedCards.slice(cardDeckState.selectedCards.length - 2)
   return (
-    <div className="h-screen w-full p-10 bg-gradient-to-b from-transparent to-near-black bg-deep-green">
+    <div className="min-h-full w-full p-10 bg-gradient-to-b from-transparent to-near-black bg-deep-green">
       <CardDeck cardsLeft={Object.keys(cardDeckState.cardDeck).length} />
-      <CardDisplay />
+      <CardDisplay cards={cardsForDisplay} />
       <div className="text-center">
         <button
           type="submit"
