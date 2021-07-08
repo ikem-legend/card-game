@@ -22,6 +22,7 @@ module.exports = {
     textColor: (theme) => ({
       ...theme('colors'),
       'medium-yellow': '#EFCE4B',
+      'card-red': '#F64242',
     }),
   },
   variants: {
