@@ -29,7 +29,6 @@ const cardReducer = (state: CardStateData, action: ActionType) => {
   // and remainder picked when less than 5
   const cardIndex = Math.floor(Math.random() * 52)
   const updatedState = { ...state } // Do a deep copy as child object is mutated
-  // const resetState = { ...state }
   switch (action.type) {
     case 'PICK_CARDS':
       // Since the previously selected object keys are deleted,
@@ -56,6 +55,7 @@ const cardReducer = (state: CardStateData, action: ActionType) => {
 
 const useCardState = (): CardReducerData => {
   const [cardDeckState, dispatch] = useReducer(cardReducer, initialState)
+  const [winStatus, setWinStatus] = useState(false)
 
   const dealCards = (): void => {
     if (Object.keys(cardDeckState.cardDeck).length === 2) {
@@ -71,8 +71,8 @@ const useCardState = (): CardReducerData => {
 
   const resetCardDeck = (): void => {
     dispatch({ type: 'RESET_CARD_DECK' })
+    setWinStatus(false)
   }
-  const [winStatus, setWinStatus] = useState(false)
   const lastCardsDetails: string[] = []
 
   useEffect(() => {
