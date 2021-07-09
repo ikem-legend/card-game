@@ -73,7 +73,6 @@ const useCardState = (): CardReducerData => {
     dispatch({ type: 'RESET_CARD_DECK' })
     setWinStatus(false)
   }
-  const lastCardsDetails: string[] = []
 
   useEffect(() => {
     if (cardDeckState.selectedCards.length === 52) {
@@ -82,7 +81,7 @@ const useCardState = (): CardReducerData => {
         setWinStatus(true)
       }
     }
-  }, [cardDeckState.selectedCards, lastCardsDetails, setWinStatus])
+  }, [cardDeckState.selectedCards, setWinStatus])
   return [cardDeckState, { dealCards, resetCardDeck }, winStatus]
 }
 

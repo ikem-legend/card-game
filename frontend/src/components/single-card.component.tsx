@@ -27,7 +27,6 @@ const SingleCard: FC<SingleCardProps> = ({ cardDetails, transition }) => {
   const cardImgAlt = cardDetails.suit
   const cardColor =
     cardDetails.suit === 'Diamonds' || cardDetails.suit === 'Hearts' ? 'text-card-red' : ''
-  console.log({ transition })
   return (
     <CSSTransition in={transition} timeout={100} classNames="card">
       <div

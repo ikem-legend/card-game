@@ -8,6 +8,8 @@ const Home: FC = () => {
   const deckSize = Object.keys(cardDeckState.cardDeck).length
   const [transition, setTransition] = useState(false)
   const serveCards = (): void => {
+    // Ensure smooth transition by setting transition to false which then hides the card
+    // via the card class and then set transition to true to reinitiate slide in transition
     setTransition(false)
     setTimeout(() => {
       setTransition(true)
