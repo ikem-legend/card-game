@@ -12,13 +12,68 @@
 }
 
 .card-enter-active,
-.card-appear-active {
+.card-appear-active,
+.card-3-enter-active,
+.card-3-appear-active {
   transform: translate3d(0, -200%, 0);
   visibility: hidden;
   transition: transform 100ms;
 }
 
+.card-1-enter-active,
+.card-1-appear-active {
+  transform: translateY(2em) rotate(10deg) translate3d(0, -200%, 0);
+  visibility: hidden;
+  transition: transform 100ms;
+}
+
+.card-2-enter-active,
+.card-2-appear-active {
+  transform: translateY(4em) rotate(5deg) translate3d(0, -200%, 0);
+  visibility: hidden;
+  transition: transform 100ms;
+}
+
+.card-4-enter-active,
+.card-4-appear-active {
+  transform: translateY(4em) rotate(-5deg) translate3d(0, -200%, 0);
+  visibility: hidden;
+  transition: transform 100ms;
+}
+
+.card-5-enter-active,
+.card-5-appear-active {
+  transform: translateY(2em) rotate(-10deg) translate3d(0, -200%, 0);
+  visibility: hidden;
+  transition: transform 100ms;
+}
+
 .card-enter-done {
-  transform: translateY(2em) rotate(10deg) translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   transition: transform 1000ms;
+}
+
+.card-1-enter-done {
+  transform: translateY(2em) rotate(10deg) translate3d(0, 0, 0);
+  transition: transform 100ms;
+}
+
+.card-2-enter-done {
+  transform: translateY(4em) rotate(5deg) translate3d(0, 0, 0);
+  transition: transform 200ms;
+}
+
+.card-3-enter-done {
+  transform: translateY(5em);
+  transition: transform 350ms;
+}
+
+.card-4-enter-done {
+  transform: translateY(4em) rotate(-5deg) translate3d(0, 0, 0);
+  transition: transform 500ms;
+}
+
+.card-5-enter-done {
+  transform: translateY(2em) rotate(-10deg) translate3d(0, 0, 0);
+  transition: transform 640ms;
 }
