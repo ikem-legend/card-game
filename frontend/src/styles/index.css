@@ -19,6 +19,6 @@
 }
 
 .card-enter-done {
-  transform: translate3d(0, 0, 0);
+  transform: translateY(2em) rotate(10deg) translate3d(0, 0, 0);
   transition: transform 1000ms;
 }

@@ -81,7 +81,7 @@ const useCardState = (): CardReducerData => {
         setWinStatus(true)
       }
     }
-  }, [cardDeckState.selectedCards, setWinStatus])
+  }, [cardDeckState.selectedCards.length, setWinStatus])
   return [cardDeckState, { dealCards, resetCardDeck }, winStatus]
 }
 

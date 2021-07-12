@@ -9,13 +9,15 @@ import { SingleCardData } from '../constants/card-deck'
 type SingleCardProps = {
   cardDetails: SingleCardData
   transition: boolean
+  split: boolean
+  cardIndex: number
 }
 
 type CardObjectData = {
   [key: string]: string
 }
 
-const SingleCard: FC<SingleCardProps> = ({ cardDetails, transition }) => {
+const SingleCard: FC<SingleCardProps> = ({ cardDetails, transition, split, cardIndex }) => {
   const cardObj: CardObjectData = {
     Clubs: CloverImg,
     Diamonds: DiamondImg,
@@ -28,7 +30,12 @@ const SingleCard: FC<SingleCardProps> = ({ cardDetails, transition }) => {
   const cardColor =
     cardDetails.suit === 'Diamonds' || cardDetails.suit === 'Hearts' ? 'text-card-red' : ''
   return (
-    <CSSTransition in={transition} timeout={100} classNames="card" appear>
+    <CSSTransition
+      in={transition}
+      timeout={100}
+      classNames={`card${split ? `-${cardIndex}` : ''}`}
+      appear
+    >
       <div
         className={`inline-block bg-white my-0.5 p-2 w-1/6 rounded-2xl h-40 ${
           !transition ? 'card' : ''
