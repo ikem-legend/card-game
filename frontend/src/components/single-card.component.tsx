@@ -28,7 +28,7 @@ const SingleCard: FC<SingleCardProps> = ({ cardDetails, transition }) => {
   const cardColor =
     cardDetails.suit === 'Diamonds' || cardDetails.suit === 'Hearts' ? 'text-card-red' : ''
   return (
-    <CSSTransition in={transition} timeout={100} classNames="card">
+    <CSSTransition in={transition} timeout={100} classNames="card" appear>
       <div
         className={`inline-block bg-white my-0.5 p-2 w-1/6 rounded-2xl h-40 ${
           !transition ? 'card' : ''

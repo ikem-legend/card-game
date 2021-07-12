@@ -4,13 +4,15 @@
   visibility: hidden;
 }
 
-.card-enter {
+.card-enter,
+.card-appear {
   transform: translate3d(0, -400%, 0);
   visibility: hidden;
   transition: transform 100ms;
 }
 
-.card-enter-active {
+.card-enter-active,
+.card-appear-active {
   transform: translate3d(0, -200%, 0);
   visibility: hidden;
   transition: transform 100ms;
