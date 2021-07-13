@@ -28,7 +28,7 @@ const cardReducer = (state: CardStateData, action: ActionType) => {
   // Account for ensuring 5 cards are picked per deal
   // and remainder picked when less than 5
   const cardIndex = Math.floor(Math.random() * 52)
-  const updatedState = { ...state } // Do a deep copy as child object is mutated
+  const updatedState = { ...state } // Do a deep copy as child object is mutated. Consider object assign to new object
   switch (action.type) {
     case 'PICK_CARDS':
       // Since the previously selected object keys are deleted,
