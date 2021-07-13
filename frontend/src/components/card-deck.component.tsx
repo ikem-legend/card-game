@@ -20,7 +20,7 @@ const CardDeck: FC<CardDeckProps> = ({ cardsLeft, winStatus }) => {
   }, [cardsLeft])
   return (
     <div className="text-center mb-1">
-      <div className="m-auto py-1 w-1/6 bg-black text-white border border-solid border-light-yellow">
+      <div className="m-auto py-1 w-1/6 bg-black text-white border border-solid border-light-yellow relative z-50">
         <p className="mb-0 text-5xl">{currentCardsLeft}</p>
         <p className="mt-0 text-xl">Cards left</p>
       </div>
